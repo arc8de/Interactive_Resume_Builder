@@ -1,0 +1,174 @@
+/* CSS Variables */ 
+:root { 
+  --primary-color: #3498db; 
+  --secondary-color: #2c3e50; 
+  --accent-color: #e74c3c; 
+  --light-color: #ecf0f1; 
+  --dark-color: #34495e; 
+  --success-color: #2ecc71; 
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  --transition: all 0.3s ease; 
+} 
+ 
+/* Base */ 
+* { 
+  margin: 0; padding: 0; box-sizing: border-box; 
+} 
+body { 
+  font-family: 'Segoe UI', sans-serif; 
+  line-height: 1.6; 
+  color: #333; 
+  background-color: #f5f7fa; 
+  padding: 20px; 
+} 
+h1, h2, h3, h4 { 
+  color: var(--secondary-color); 
+  margin-bottom: 15px; 
+} 
+.container { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 20px; 
+} 
+header { 
+  text-align: center; 
+  margin-bottom: 30px; 
+  animation: fadeIn 1s ease; 
+} 
+header h1 { 
+  color: var(--primary-color); 
+  font-size: 2.5rem; 
+  margin-bottom: 10px; 
+} 
+ 
+/* Layout */ 
+.resume-builder { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 30px; 
+  margin-bottom: 40px; 
+} 
+.form-section, .preview-section { 
+  flex: 1; 
+  min-width: 300px; 
+  background: white; 
+  padding: 25px; 
+  border-radius: 10px; 
+  box-shadow: var(--shadow); 
+} 
+.form-section { animation: slideInLeft 0.8s ease; } 
+.preview-section { animation: slideInRight 0.8s ease; } 
+ 
+/* Form */ 
+.form-group { margin-bottom: 20px; } 
+label { 
+  display: block; margin-bottom: 8px; font-weight: 600; color: var(--dark-color); 
+} 
+input, textarea, select { 
+  width: 100%; padding: 12px 15px; 
+  border: 1px solid #ddd; border-radius: 5px; font-size: 16px; 
+  transition: var(--transition); 
+} 
+input:focus, textarea:focus, select:focus { 
+  border-color: var(--primary-color); 
+  box-shadow: 0 0 0 2px rgba(52,152,219,0.2); 
+} 
+textarea { min-height: 100px; resize: vertical; } 
+button { 
+  padding: 12px 20px; background: var(--primary-color); 
+  color: white; border: none; border-radius: 5px; 
+  cursor: pointer; font-size: 16px; font-weight: 600; 
+  transition: var(--transition); 
+} 
+button:hover { background: #2980b9; transform: translateY(-2px); } 
+button.secondary { background: var(--secondary-color); } 
+button.secondary:hover { background: #1e2a36; } 
+button.accent { background: var(--accent-color); } 
+button.accent:hover { background: #c0392b; } 
+.btn-group { display: flex; gap: 10px; margin-top: 10px; } 
+ 
+/* Skills */ 
+.skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; } 
+.skill-tag { 
+  background: var(--light-color); padding: 5px 15px; 
+  border-radius: 50px; cursor: pointer; transition: var(--transition); 
+} 
+.skill-tag:hover { background: #dfe6e9; } 
+.skill-tag.selected { background: var(--primary-color); color: white; } 
+ 
+/* Dynamic sections */ 
+.dynamic-section { margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ddd; } 
+.dynamic-item { 
+  background: var(--light-color); padding: 15px; 
+  border-radius: 5px; margin-bottom: 15px; 
+  animation: fadeIn 0.5s ease; 
+} 
+ 
+/* Resume preview */ 
+.resume { 
+  border: 1px solid #ddd; 
+  padding: 30px; min-height: 500px; background: white; 
+  box-shadow: 0 0 10px rgba(0,0,0,0.05); 
+} 
+.resume-header { 
+  text-align: center; margin-bottom: 20px; padding-bottom: 20px; 
+  border-bottom: 2px solid var(--primary-color); 
+} 
+.resume-section { margin-bottom: 25px; } 
+.resume-section h3 { 
+  color: var(--primary-color); 
+  border-bottom: 1px solid #eee; 
+  padding-bottom: 5px; margin-bottom: 15px; 
+} 
+.skills-list span { 
+  background: var(--light-color); padding: 5px 15px; 
+  border-radius: 50px; 
+} 
+ 
+/* Progress bar */ 
+.progress-container { 
+  height: 10px; background: #ecf0f1; 
+  border-radius: 5px; margin-bottom: 30px; 
+  overflow: hidden; 
+} 
+.progress-bar { 
+  height: 100%; background: var(--success-color); 
+  width: 0%; transition: width 0.5s ease; 
+} 
+ 
+/* Animations */ 
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} } 
+@keyframes slideInLeft { from {transform:translateX(-30px);opacity:0;} to 
+{transform:translateX(0);opacity:1;} } 
+@keyframes slideInRight { from {transform:translateX(30px);opacity:0;} to 
+{transform:translateX(0);opacity:1;} } 
+ 
+/* Responsive */ 
+@media (max-width: 768px) { 
+  .resume-builder { flex-direction: column; } 
+  .contact-info { flex-direction: column; gap: 5px; } 
+  header h1 { font-size: 2rem; } 
+} 
+ 
+/* Custom skill input styles */ 
+.custom-skill-input { 
+  display: flex; 
+  gap: 10px; 
+  margin-top: 10px; 
+} 
+.custom-skill-input input { 
+  flex-grow: 1; 
+  padding: 10px 15px; 
+  font-size: 16px; 
+  border: 1px solid #ddd; 
+  border-radius: 5px; 
+  transition: var(--transition); 
+} 
+.custom-skill-input input:focus { 
+  border-color: var(--primary-color); 
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2); 
+} 
+.custom-skill-input button { 
+  padding: 10px 20px; 
+  font-size: 16px; 
+}
